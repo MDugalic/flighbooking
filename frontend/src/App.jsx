@@ -1,41 +1,21 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import "./App.css";
-
-const API_URL = import.meta.env.VITE_API_URL;
-
-const fetchFlights = async () => {
-  try {
-    const response = await axios.get(`${API_URL}/flights`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching flights:", error);
-    return [];
-  }
-};
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Airlines from "./pages/Airlines";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
-  const [flights, setFlights] = useState([]);
-
-  useEffect(() => {
-    fetchFlights().then(setFlights);
-  }, []);
-
   return (
-    <div>
-      <h1>Flight Booking System</h1>
-      <ul>
-        {flights.length > 0 ? (
-          flights.map((flight) => (
-            <li key={flight.id}>
-              {flight.departureLocation} → {flight.destination} (${flight.price})
-            </li>
-          ))
-        ) : (
-          <p>No flights available.</p>
-        )}
-      </ul>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/airlines" element={<Airlines />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "ContainingType": "FlightBookingAPI.Controllers.FlightController",
+    "Method": "GetFlights",
+    "RelativePath": "api/Flight/flights",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
