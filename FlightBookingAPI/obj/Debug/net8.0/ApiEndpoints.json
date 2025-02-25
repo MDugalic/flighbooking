@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "FlightBookingAPI.Controllers.AirlineController",
+    "Method": "GetAirlines",
+    "RelativePath": "api/Airline/airlines",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FlightBookingAPI.Controllers.FlightController",
     "Method": "GetFlights",
     "RelativePath": "api/Flight/flights",
@@ -7,6 +17,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FlightBookingAPI.Controllers.UserController",
+    "Method": "Register",
+    "RelativePath": "api/User/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "Domain.Entities.User",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

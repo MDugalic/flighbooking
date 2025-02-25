@@ -19,7 +19,7 @@ const Home = () => {
       .then(response => {
         const activeFlights = response.data.filter(flight => flight.status === "Active");
         setFlights(activeFlights);
-        setFilteredFlights(activeFlights);
+        setFilteredFlights(activeFlights); // Postavljamo početne podatke
       })
       .catch(error => console.error("Error fetching flights:", error));
   }, []);
@@ -36,18 +36,6 @@ const Home = () => {
       );
     });
     setFilteredFlights(filtered);
-  };
-
-  // Funkcija za sortiranje letova po ceni rastuće
-  const handleSortAscending = () => {
-    const sortedFlights = [...filteredFlights].sort((a, b) => a.price - b.price);
-    setFilteredFlights(sortedFlights);
-  };
-
-  // Funkcija za sortiranje letova po ceni opadajuće
-  const handleSortDescending = () => {
-    const sortedFlights = [...filteredFlights].sort((a, b) => b.price - a.price);
-    setFilteredFlights(sortedFlights);
   };
 
   return (
@@ -107,12 +95,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Dugmad za sortiranje */}
-      <div className="text-center mb-3">
-        <button className="btn btn-success me-2" onClick={handleSortAscending}>Sort by Price (Ascending)</button>
-        <button className="btn btn-danger" onClick={handleSortDescending}>Sort by Price (Descending)</button>
-      </div>
-
       {/* Lista letova */}
       <div className="row">
         {filteredFlights.length > 0 ? (
@@ -122,7 +104,7 @@ const Home = () => {
                 <div className="card-body">
                   <h5 className="card-title">{flight.departureLocation} → {flight.destination}</h5>
                   <p className="card-text"><strong>Airline:</strong> {flight.airlineName}</p>
-                  <p className="card-text"><strong>Price:</strong> ${flight.price.toFixed(2)}</p> {/* Dodali smo cenu */}
+                  <p className="card-text"><strong>Price:</strong> ${flight.price}</p>
                   <p className="card-text"><strong>Departure:</strong> {new Date(flight.departureTime).toLocaleString()}</p>
                   <p className="card-text"><strong>Arrival:</strong> {new Date(flight.arrivalTime).toLocaleString()}</p>
                   <button className="btn btn-primary">View Details</button>
