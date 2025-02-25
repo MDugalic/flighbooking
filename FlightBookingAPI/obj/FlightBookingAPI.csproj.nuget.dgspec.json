@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\FlightBookingAPI\\FlightBookingAPI.csproj": {}
+    "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\FlightBookingAPI\\FlightBookingAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Application\\Application.csproj": {
+    "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\milan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Application\\obj\\",
+        "outputPath": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Domain\\Domain.csproj": {
+    "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\milan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -134,14 +134,14 @@
         }
       }
     },
-    "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\FlightBookingAPI\\FlightBookingAPI.csproj": {
+    "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\FlightBookingAPI\\FlightBookingAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\FlightBookingAPI\\FlightBookingAPI.csproj",
+        "projectUniqueName": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\FlightBookingAPI\\FlightBookingAPI.csproj",
         "projectName": "FlightBookingAPI",
-        "projectPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\FlightBookingAPI\\FlightBookingAPI.csproj",
+        "projectPath": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\FlightBookingAPI\\FlightBookingAPI.csproj",
         "packagesPath": "C:\\Users\\milan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\FlightBookingAPI\\obj\\",
+        "outputPath": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\FlightBookingAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -162,11 +162,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Application\\Application.csproj"
+              "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Application\\Application.csproj"
               },
-              "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Persistence\\Persistence.csproj"
+              "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -187,6 +187,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -198,6 +202,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.6.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.6.0, )"
             }
           },
           "imports": [
@@ -223,14 +235,14 @@
         }
       }
     },
-    "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\milan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -251,8 +263,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Airline\\FlightBooking\\Domain\\Domain.csproj"
+              "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\milan\\OneDrive\\Documents\\GitHub\\flighbooking\\Domain\\Domain.csproj"
               }
             }
           }
