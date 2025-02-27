@@ -17,11 +17,16 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(`${API_URL}/user/login`, user);
+  
+      // Čuvamo podatke korisnika u localStorage
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("username", response.data.username);
       localStorage.setItem("role", response.data.role);
+      localStorage.setItem("firstName", response.data.firstName);
+      localStorage.setItem("lastName", response.data.lastName);
+  
       setMessage("Login successful!");
-      navigate("/profile"); // Redirektuje na profil stranicu
+      navigate("/profile"); // Preusmeravanje na profil
     } catch (error) {
       setMessage("Invalid username or password");
     }

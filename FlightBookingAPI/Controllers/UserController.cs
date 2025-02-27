@@ -92,8 +92,51 @@ namespace FlightBookingAPI.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-    }
+        [HttpGet("profile")]
+        public async Task<IActionResult> GetUserProfile()
+        {
+            var username = User.Identity.Name; // Dohvatanje username-a iz tokena
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
 
+            if (user == null)
+                return NotFound(new { message = "User not found" });
+
+            return Ok(new
+            {
+                user.Username,
+                user.FirstName,
+                user.LastName,
+                user.Email,
+                user.DateOfBirth,
+                user.Gender
+            });
+        }
+
+        [HttpPut("profile/update")]
+        public async Task<IActionResult> UpdateUserProfile([FromBody] UpdateProfileRequest request)
+        {
+            var username = User.Identity.Name;
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+
+            if (user == null)
+                return NotFound(new { message = "User not found" });
+
+            user.FirstName = request.FirstName;
+            user.LastName = request.LastName;
+
+            await _context.SaveChangesAsync();
+            return Ok(new { message = "Profile updated successfully" });
+        }
+
+        
+        
+    }
+    // DTO klasa za ažuriranje profila
+    public class UpdateProfileRequest
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+    }
     // DTO klasa za login
     public class LoginRequest
     {
