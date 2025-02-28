@@ -5,18 +5,41 @@ const Header = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
+  // 📌 Učitavanje korisnika pri pokretanju aplikacije
   useEffect(() => {
-    const firstName = localStorage.getItem("firstName");
-    const lastName = localStorage.getItem("lastName");
-    const username = localStorage.getItem("username");
+    const updateUser = () => {
+      const firstName = localStorage.getItem("firstName");
+      const lastName = localStorage.getItem("lastName");
+      const username = localStorage.getItem("username");
 
-    if (firstName && lastName) {
-      setUser({ firstName, lastName });
-    } else if (username) {
-      setUser({ firstName: username, lastName: "" }); // Prikazuje samo username ako nema firstName i lastName
-    }
+      if (firstName && lastName) {
+        setUser({ firstName, lastName });
+      } else if (username) {
+        setUser({ firstName: username, lastName: "" }); // Ako nema imena, prikazuje username
+      } else {
+        setUser(null); // Ako nema podataka, postavi user na null
+      }
+    };
+
+    updateUser();
+
+    // 📌 Dodaj event listener da osveži Header kada se promeni localStorage
+    window.addEventListener("storage", updateUser);
+
+    // 📌 Dodaj event listener da se korisnik izloguje kada zatvori tab ili osveži stranicu
+    const handleUnload = () => {
+      localStorage.clear();
+      setUser(null);
+    };
+    window.addEventListener("beforeunload", handleUnload);
+
+    return () => {
+      window.removeEventListener("storage", updateUser);
+      window.removeEventListener("beforeunload", handleUnload);
+    };
   }, []);
 
+  // 📌 Logout funkcija
   const handleLogout = () => {
     localStorage.clear();
     setUser(null);
@@ -44,7 +67,8 @@ const Header = () => {
               <>
                 <li className="nav-item">
                   <Link className="nav-link" to="/profile">
-                    {user.firstName} {user.lastName}
+                    {user.firstName?.trim() || user.lastName?.trim() ? 
+                      `${user.firstName} ${user.lastName}`.trim() : user.firstName || "Profile"}
                   </Link>
                 </li>
                 <li className="nav-item">

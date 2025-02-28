@@ -52,7 +52,10 @@ namespace FlightBookingAPI.Controllers
             }
 
             var token = GenerateJwtToken(user);
-            return Ok(new { token, username = user.Username, role = user.UserType.ToString() });
+            return Ok(new { token, username = user.Username, role = user.UserType.ToString() ,
+                firstName = user.FirstName,  // ➡ Dodato ime
+                lastName = user.LastName
+            });
         }
 
         // 📌 Hash funkcija za lozinke (SHA256)

@@ -12,18 +12,21 @@ const Login = () => {
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(`${API_URL}/user/login`, user);
   
-      // Čuvamo podatke korisnika u localStorage
+      // 📌 Čuvamo podatke korisnika u localStorage
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("username", response.data.username);
       localStorage.setItem("role", response.data.role);
       localStorage.setItem("firstName", response.data.firstName);
       localStorage.setItem("lastName", response.data.lastName);
+  
+      // 📌 Ovim obaveštavamo Header da osveži prikaz
+      window.dispatchEvent(new Event("storage"));
   
       setMessage("Login successful!");
       navigate("/profile"); // Preusmeravanje na profil
