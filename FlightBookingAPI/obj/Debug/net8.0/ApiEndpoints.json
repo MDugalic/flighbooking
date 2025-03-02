@@ -20,6 +20,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FlightBookingAPI.Controllers.FlightController",
+    "Method": "GetUserFlights",
+    "RelativePath": "api/Flight/user-flights/{username}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FlightBookingAPI.Controllers.UserController",
     "Method": "Login",
     "RelativePath": "api/User/login",

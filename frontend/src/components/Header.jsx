@@ -5,41 +5,24 @@ const Header = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  // 📌 Učitavanje korisnika pri pokretanju aplikacije
   useEffect(() => {
     const updateUser = () => {
       const firstName = localStorage.getItem("firstName");
       const lastName = localStorage.getItem("lastName");
-      const username = localStorage.getItem("username");
+      const role = localStorage.getItem("role");
 
       if (firstName && lastName) {
-        setUser({ firstName, lastName });
-      } else if (username) {
-        setUser({ firstName: username, lastName: "" }); // Ako nema imena, prikazuje username
+        setUser({ firstName, lastName, role });
       } else {
-        setUser(null); // Ako nema podataka, postavi user na null
+        setUser(null);
       }
     };
 
     updateUser();
-
-    // 📌 Dodaj event listener da osveži Header kada se promeni localStorage
     window.addEventListener("storage", updateUser);
-
-    // 📌 Dodaj event listener da se korisnik izloguje kada zatvori tab ili osveži stranicu
-    const handleUnload = () => {
-      localStorage.clear();
-      setUser(null);
-    };
-    window.addEventListener("beforeunload", handleUnload);
-
-    return () => {
-      window.removeEventListener("storage", updateUser);
-      window.removeEventListener("beforeunload", handleUnload);
-    };
+    return () => window.removeEventListener("storage", updateUser);
   }, []);
 
-  // 📌 Logout funkcija
   const handleLogout = () => {
     localStorage.clear();
     setUser(null);
@@ -61,14 +44,18 @@ const Header = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/airlines">Airlines</Link>
             </li>
+            {user?.role === "Passenger" && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/my-flights">My Flights</Link>
+              </li>
+            )}
           </ul>
           <ul className="navbar-nav">
             {user ? (
               <>
                 <li className="nav-item">
                   <Link className="nav-link" to="/profile">
-                    {user.firstName?.trim() || user.lastName?.trim() ? 
-                      `${user.firstName} ${user.lastName}`.trim() : user.firstName || "Profile"}
+                    {user.firstName} {user.lastName}
                   </Link>
                 </li>
                 <li className="nav-item">

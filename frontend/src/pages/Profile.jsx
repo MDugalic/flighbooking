@@ -56,11 +56,6 @@ const Profile = () => {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/login");
-  };
-
   return (
     <div className="container mt-5">
       <h2 className="text-center">Profile</h2>
@@ -73,21 +68,8 @@ const Profile = () => {
           <label className="form-label">Email</label>
           <input type="email" className="form-control" value={user.email} disabled />
         </div>
-        <div className="mb-3">
-          <label className="form-label">Date of Birth</label>
-          <input type="date" className="form-control" value={user.dateOfBirth} disabled />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">First Name</label>
-          <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={handleChange} required />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Last Name</label>
-          <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={handleChange} required />
-        </div>
         <button type="submit" className="btn btn-success w-100">Save Changes</button>
       </form>
-      <button className="btn btn-danger w-100 mt-3" onClick={handleLogout}>Logout</button>
     </div>
   );
 };
