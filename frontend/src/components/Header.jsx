@@ -7,11 +7,11 @@ const Header = () => {
 
   useEffect(() => {
     const updateUser = () => {
-      const firstName = localStorage.getItem("firstName");
-      const lastName = localStorage.getItem("lastName");
+      const firstName = localStorage.getItem("firstName") || "";
+      const lastName = localStorage.getItem("lastName") || "";
       const role = localStorage.getItem("role");
 
-      if (firstName && lastName) {
+      if (role) {
         setUser({ firstName, lastName, role });
       } else {
         setUser(null);
@@ -27,6 +27,7 @@ const Header = () => {
     localStorage.clear();
     setUser(null);
     navigate("/login");
+    window.location.reload(); // ✅ Resetuje prikaz headera
   };
 
   return (
@@ -49,13 +50,18 @@ const Header = () => {
                 <Link className="nav-link" to="/my-flights">My Flights</Link>
               </li>
             )}
+            {user?.role === "Passenger" && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/my-reservations">My Reservations</Link>
+              </li>
+            )}
           </ul>
           <ul className="navbar-nav">
             {user ? (
               <>
                 <li className="nav-item">
                   <Link className="nav-link" to="/profile">
-                    {user.firstName} {user.lastName}
+                    {user.firstName || "User"} {user.lastName}
                   </Link>
                 </li>
                 <li className="nav-item">

@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import MyFlights from "./pages/MyFlights";
+import MyReservations from "./pages/MyReservations";
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/my-flights" element={<MyFlights />} />
+        <Route path="/my-reservations" element={<MyReservations />} />
       </Routes>
     </Router>
   );
